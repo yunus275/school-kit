@@ -1,0 +1,57 @@
+:root {
+  --board: #1f3a34;
+  --board-deep: #172c27;
+  --chalk: #f2efe6;
+  --chalk-dim: #a9b8b1;
+  --ledge: #b9855a;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 40%, var(--board), var(--board-deep));
+  color: var(--chalk);
+  font-family: ui-rounded, "Segoe UI", system-ui, sans-serif;
+  padding: env(safe-area-inset-top) 1.5rem env(safe-area-inset-bottom);
+}
+
+main { text-align: center; }
+
+.button {
+  display: inline-block;
+  padding: 1.1rem 2.6rem;
+  background: var(--chalk);
+  color: var(--board-deep);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 6px;
+  border-bottom: 6px solid var(--ledge);
+  transition: transform 0.12s ease, border-bottom-width 0.12s ease;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.button:active {
+  transform: translateY(4px);
+  border-bottom-width: 2px;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--chalk);
+  outline-offset: 4px;
+}
+
+#info {
+  margin: 1.1rem 0 0;
+  font-size: 0.9rem;
+  color: var(--chalk-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+}
